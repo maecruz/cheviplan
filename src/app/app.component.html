@@ -1,0 +1,115 @@
+<div class="row justify-content-between">
+  <div class="col-12 col-lg-5">
+    <h1>
+      Plan Prográmate
+    </h1>
+    <p>
+      Ahora tú planeas cuándo serás adjudicado para tu nuevo vehículo Chevrolet
+    </p>
+  </div>
+  <div class="col-12 col-lg-5">
+    <div class="contenedor">
+    <p class="titulo">¿Que esperas para cumplir tu sueño? </p>
+    <p class="subtitulo">Deja tus datos y nos comunicaremos contigo.</p>
+
+    <form class="formLanding" [formGroup]="formulario" >
+        <div class="row">
+            <div class="col">  
+      <mat-form-field class="inputForm">
+        <input matInput placeholder="Nombre completo" formControlName="nombre" [errorStateMatcher]="matcher">
+        <mat-error
+          *ngIf="!formulario.controls.nombre.hasError('required')">
+          Ingresa solo letras
+        </mat-error>
+        <mat-error *ngIf="formulario.controls.nombre.hasError('required')">
+          Campo Requerido
+        </mat-error>
+      </mat-form-field>
+      </div>
+        </div>
+        <div class="row">
+      <div class="col-12 col-lg-6"> 
+      <mat-form-field class="inputForm">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select formControlName="tipoId" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let tipoId of tiposDocumentos" [value]="tipoId.valor">
+            {{tipoId.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formulario.controls.tipoId.hasError('required')">
+            Campo Requerido
+          </mat-error>
+      </mat-form-field>
+    </div>
+    
+        <div class="col-12 col-lg-6"> 
+      <mat-form-field class="inputForm">
+        <input matInput placeholder="Numero de documento" formControlName="documento" [errorStateMatcher]="matcher">
+        <mat-error
+          *ngIf="!formulario.controls.documento.hasError('required')">
+          El número de documento debe estar entre 7 y 10 dígitos y ser numérico
+        </mat-error>
+        <mat-error *ngIf="formulario.controls.documento.hasError('required')">
+            Campo Requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+        </div>
+        <div class="row">
+    <div class="col-12 col-lg-6"> 
+      <mat-form-field class="inputForm">
+        <mat-label>País</mat-label>
+        <mat-select formControlName="pais" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let pais of paises" [value]="pais.valor">
+            {{pais.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formulario.controls.pais.hasError('required')">
+            Campo Requerido
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-lg-6"> 
+      <mat-form-field class="inputForm">
+        <input matInput placeholder="Celular" formControlName="celular" [errorStateMatcher]="matcher">
+        <mat-error
+          *ngIf="!formulario.controls.celular.hasError('required')">
+          El número de celular debe tener 10 dígitos 
+        </mat-error>
+        <mat-error *ngIf="formulario.controls.celular.hasError('required')">
+            Campo Requerido
+        </mat-error>
+      </mat-form-field>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col">
+      <mat-form-field class="inputForm">
+        <input matInput placeholder="Email" formControlName="correo" [errorStateMatcher]="matcher">
+        <mat-error
+          *ngIf="formulario.controls.correo.hasError('email') && !formulario.controls.correo.hasError('required')">
+          Dirección de correo incorrecta
+        </mat-error>
+        <mat-error *ngIf="!formulario.controls.correo.hasError('required')">
+            Campo Requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row terminos">
+      <div class="col">
+          <mat-checkbox formControlName="condiciones" required>Leí y acepto condiciones de la <a href="#">politica de privacidad</a></mat-checkbox>
+          <mat-error *ngIf="formulario.controls.condiciones.invalid">
+              Debes aceptar términos y condiciones
+          </mat-error>
+        </div> </div>
+        <div class="row justify-content-center">
+            <div class="col-5">        
+             <button mat-button [disabled]="!formulario.valid">Enviar</button>
+            </div>
+        </div>
+    </form>
+  </div>
+
+  </div>
+</div>

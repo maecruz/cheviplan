@@ -1,0 +1,202 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$cheviplan-primary: mat-palette($mat-indigo);
+$cheviplan-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$cheviplan-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$cheviplan-theme: mat-light-theme($cheviplan-primary, $cheviplan-accent, $cheviplan-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($cheviplan-theme);
+
+$link: #386CBF;
+$color01: #154289;
+$color04: #942D46;
+$color06: #232323;
+$color07: #6B3176;
+$color02: #E1E1E1;
+$color05: #707070;
+$color03: #4A4A4A;
+$blanco: #FFF;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Arial, sans-serif !important; background: url(assets/img/BgFondo.jpg) 0 0 ; background-size: cover;}
+
+h1{
+    color: $blanco;
+    font-size: 36px;
+    font-weight: 800;
+    font-style: italic;
+    margin-top: 50%;
+    }
+    
+    h1 + p {
+        font-size: 20px;
+        color: $blanco;
+    }
+    
+    .contenedor{
+        background-color: rgba(255, 255, 255, 0.7);  
+        padding: 30px 20px;    
+        box-sizing: border-box;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+        margin-top: 10%;
+    }
+
+    .contenedor .row>div {
+        margin-bottom: 10px;
+    }
+    
+    .titulo, .subtitulo{
+        color: $color03 ;
+        text-align: center;
+    }
+    
+    .titulo{
+    font-weight: 800;
+    font-style: italic;
+    font-size: 20px;
+    text-transform: uppercase;
+    
+    }
+    
+    .subtitulo{
+    font-size: 16px;
+    margin-top: 20px;
+    }
+
+    .mat-form-field-infix{
+        width: 100%;
+    }
+
+    .mat-form-field {
+        display: block !important;
+    }
+    
+    .mat-form-field-appearance-legacy .mat-form-field-infix{
+        padding: 0;
+        }
+        
+        input.mat-input-element, .mat-select{
+            background-color: $color02;
+            padding: 0.4375em 0 .4375em 0.4375em;
+            border-radius: 8px 8px 0 0;
+            box-sizing: border-box;
+            height: 40px;
+        }
+        
+        .mat-form-field-label{
+            color: $color05 ;
+            margin: 0 0 0 0.4375em;
+        }
+        
+        .mat-form-field-appearance-legacy .mat-form-field-label{
+            top: 1.5em;
+        }
+        
+        .mat-form-field-appearance-legacy .mat-form-field-underline,
+        .mat-form-field-appearance-legacy .mat-form-field-ripple,
+        .mat-form-field-appearance-legacy.mat-form-field-invalid:not(.mat-focused) .mat-form-field-ripple {
+          height: 3px !important;  
+        }
+
+        .ng-valid .mat-form-field-label{
+            color: $color01 !important;            
+        }
+
+        .ng-valid .mat-form-field-underline{
+            background-color: $color01;
+        }
+            
+        
+        
+        .ng-untouched.mat-focused label span,        
+        .ng-dirty.mat-focused label span
+        {
+        color: $color01;
+        }
+        
+        .mat-form-field.mat-focused .mat-form-field-ripple{
+        background: $color01;
+        }
+        
+        .mat-form-field.mat-form-field-invalid .mat-form-field-label{
+        color: $color05;
+        }
+        
+        .mat-form-field.mat-form-field-invalid .mat-form-field-label span
+        {
+        color: $color05;
+        }
+        
+        
+        
+        .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+            transform: translateY(-1.6125em) scale(.75) perspective(100px) translateZ(.001px);
+            font-weight: 800;
+        }
+        
+        .mat-form-field.mat-form-field-invalid .mat-form-field-ripple, .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent{
+        background-color: $color04;
+        }
+        
+        .mat-error{
+        color: $color04;
+        }
+        
+        .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element{
+        border: 1px solid $color04;
+        }
+        
+
+        button.mat-button[disabled][disabled]{
+            background: $color05;
+            color: $color02;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        button{
+            width: 100%;
+            font-style: italic;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        button.mat-button{
+            background: $color01;
+            color: $blanco;            
+        }
+
+        button.mat-button:hover{
+            background: $color07;
+            color: $blanco;           
+        }
+
+        .terminos{
+            font-size: 14px;  
+
+        }
+
+        a{
+            color: $link;
+            text-decoration: underline;
+
+        }
